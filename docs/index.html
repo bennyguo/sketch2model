@@ -1,0 +1,95 @@
+<!doctype html>
+<html class="no-js" lang="">
+
+<head>
+  <meta charset="utf-8">
+  <title></title>
+  <meta name="description" content="">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <meta property="og:title" content="">
+  <meta property="og:type" content="">
+  <meta property="og:url" content="">
+  <meta property="og:image" content="">
+
+  <!-- Place favicon.ico in the root directory -->
+
+  <link rel="stylesheet" href="static/css/normalize.css">
+  <link rel="stylesheet" href="static/css/main.css">
+  <link rel="stylesheet" href="static/css/customize.css">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-+0n0xVW2eSR5OomGNYDnhzAbDsOXxcvSN1TPprVMTNDbiYZCxYbOOl7+AMvyTG2x" crossorigin="anonymous">
+
+  <meta name="theme-color" content="#fafafa">
+</head>
+
+<body>
+  <!-- Add your site or application content here -->
+  <div class="bg-light p-5 rounded-lg m-3 text-center">
+    <h1 class="display-5">Sketch2Model:<br>View-Aware 3D Modeling from Single Free-Hand Sketches</h1>
+    <p class="lead">Song-Hai Zhang, Yuan-Chen Guo, Qing-Wen Gu<br>Tsinghua University</p>
+    <p>Computer Vision and Pattern Recogonition (CVPR) 2021</p>
+    <hr class="my-4">
+    <a class="btn btn-primary btn-lg" href="https://arxiv.org/abs/2105.06663" role="button" target="_blank">arXiv</a>
+    <a class="btn btn-primary btn-lg disabled" role="button" target="_blank">Code (coming)</a>
+    <a class="btn btn-primary btn-lg" href="https://drive.google.com/file/d/11H8K1GFiqkbb1zDTKnQIuklncUjAbRvC/view?usp=sharing" role="button" target="_blank">Data</a>
+  </div>
+  <div class="content-wrapper">
+    <div class="row justify-content-center">
+      <div class="col-12">
+        <div class="section-wrapper mb-5">
+          <h2 class="text-center">Abstract</h2>
+          <p>We investigate the problem of generating 3D meshes from single free-hand sketches, aiming at fast 3D modeling for novice users. It can be regarded as a single-view reconstruction problem, but with unique challenges, brought by the variation and conciseness of sketches. Ambiguities in poorly-drawn sketches could make it hard to determine how the sketched object is posed. In this paper, we address the importance of viewpoint specification for overcoming such ambiguities, and propose a novel view-aware generation approach. By explicitly conditioning the generation process on a given viewpoint, our method can generate plausible shapes automatically with predicted viewpoints, or with specified viewpoints to help users better express their intentions. Extensive evaluations on various datasets demonstrate the effectiveness of our view-aware design in solving sketch ambiguities and improving reconstruction quality.</p>
+        </div>
+        <div class="section-wrapper mb-5">
+          <h2 class="text-center">Problem Setting</h2>
+          <p>The figure bellow illustrates our proposed view-aware setting, where the user inputs a free-hand sketch, and optionally a viewpoint.The viewpoint describes which angle the object is sketched from, and can also come from network prediction. The output is a 3D mesh. It would match the input sketch at the viewpoint.</p>
+          <img src="static/media/setting.png" class="img-fluid">
+        </div>
+        <div class="section-wrapper mb-5">
+          <h2 class="text-center">View-Aware Property</h2>
+          <p>Our method outputs different shapes according to different input viewpoints, and ensures consistent silhouettes at these viewpoints. Take the table for example. If seen from the side of the table, with a small elevation angle, the synthesized result will have a thick top and short legs. As the elevation angle gets larger, the tabletop gets thinner and the legs become longer, to satisfy the silhouette constraint.</p>
+          <img src="static/media/view-aware.png" class="img-fluid">
+        </div>
+        <div class="section-wrapper mb-5">
+          <h2 class="text-center">3D Modeling Results</h2>
+          <p>Here shows some 3D modeling results on our collected ShapeNet-Sketch dataset (with predicted viewpoints).</p>
+          <img src="static/media/gen.png" class="img-fluid">
+        </div>
+        <div class="section-wrapper mb-5">
+          <h2 class="text-center">ShapeNet-Sketch Dataset</h2>
+          <p>To further evaluate our method, we collect a ShapeNet-Sketch dataset containing <span class="fw-bold">1,300</span> free-hand sketches drawn by novice users, and their corresponding 3D models. The dataset is available on <a href="https://drive.google.com/file/d/11H8K1GFiqkbb1zDTKnQIuklncUjAbRvC/view?usp=sharing" target="_blank">Google Drive</a> to inspire further research. For more details, we refer to the README document contained in the dataset.</p>
+          <p>Here we show the mean voxel IoU scores on the ShapeNet-Sketch testset, comparing to baseline methods.</p>
+          <img src="static/media/3d-iou.png" class="img-fluid">
+          We also show comparisons on 2D IoU scores, to demonstrate how well the output shape matches the input sketch.
+          <img src="static/media/2d-iou.png" class="img-fluid">
+        </div>
+        <div class="section-wrapper mb-5">
+          <h2 class="text-center">Video</h2>
+          <div class="video-wrapper">
+            <iframe width="100%" src="https://www.youtube.com/embed/wqGwcUKBG7E" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+          </div>
+        </div>
+        <div class="section-wrapper mb-5">
+          <h2 class="text-center">Citation</h2>
+          <pre class="bg-light"><code>
+  @article{zhang2021sketch2model,
+    title={Sketch2Model: View-Aware 3D Modeling from Single Free-Hand Sketches},
+    author={Zhang, Song-Hai and Guo, Yuan-Chen and Gu, Qing-Wen},
+    journal={arXiv preprint arXiv:2105.06663},
+    year={2021}
+  }
+          </code></pre>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+  <script src="static/js/vendor/modernizr-3.11.2.min.js"></script>
+  <script src="static/js/plugins.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-gtEjrD/SeCtmISkJkNUaaKMoLD0//ElJ19smozuHV6z3Iehds+3Ulb9Bn9Plx0x4" crossorigin="anonymous"></script>  
+  <script src="static/js/main.js"></script>
+
+</body>
+
+</html>
