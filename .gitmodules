@@ -1,0 +1,3 @@
+[submodule "SoftRas"]
+	path = SoftRas
+	url = https://github.com/ShichenLiu/SoftRas.git
