@@ -328,7 +328,7 @@ class ViewDisentangleModel(BaseModel):
         ]
         self.renderers = [
             sr.SoftRasterizer(
-                image_size=opt.image_size // scale, sigma_val=sigma,
+                image_size=opt.image_size // scale, sigma_val=sigma, aggr_func_rgb='hard', aggr_func_alpha='prod', dist_eps=1e-10
             ) for (scale, sigma) in zip(self.render_scales, self.sigmas)
         ]
 
