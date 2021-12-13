@@ -2,7 +2,7 @@
 ### [Project Page](https://bennyguo.github.io/sketch2model/) | [Video](https://www.youtube.com/watch?v=wqGwcUKBG7E) | [Paper](https://arxiv.org/abs/2105.06663) | [Data](https://drive.google.com/drive/folders/1_DKZV6KtqpLKRoBd0JgOgf60wi1LYm6s?usp=sharing)
 Official PyTorch implementation of paper `Sketch2Model: View-Aware 3D Modeling from Single Free-Hand Sketches`, presented at CVPR 2021. The code framework is adapted from [this CycleGAN repository](https://github.com/junyanz/pytorch-CycleGAN-and-pix2pix).
 
-<!-- ![](docs/static/media/gen.png) -->
+![](web/static/media/gen.png)
 
 ## Environments
 - `git clone --recursive https://github.com/bennyguo/sketch2model.git`
