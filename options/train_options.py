@@ -24,11 +24,11 @@ class TrainOptions(BaseOptions):
         parser.add_argument('--vis_freq', type=int, default=100, help='training visualization frequency, in steps')
         parser.add_argument('--val_epoch_freq', type=int, default=50, help='validation frequency, in epochs')
         parser.add_argument('--val_epoch_vis_n', type=int, default=20, help='number of data to visualize in validation')
-        parser.add_argument('--test_epoch_freq', type=int, default=50, help='testing frequency, in epochs')
+        parser.add_argument('--test_epoch_freq', type=int, default=2000, help='testing frequency, in epochs')
         parser.add_argument('--test_epoch_vis_n', type=int, default=20, help='number of data to visualize in testing')
 
         # network saving and loading parameters
-        parser.add_argument('--save_epoch_freq', type=int, default=50, help='frequency of saving checkpoints at the end of epochs')
+        parser.add_argument('--save_epoch_freq', type=int, default=500, help='frequency of saving checkpoints at the end of epochs')
         parser.add_argument('--continue_train', action='store_true', help='continue training: load model at epoch [load_epoch]')
         parser.add_argument('--init_weights', type=str, default=None, help='initialize weights from an existing model, in format [name]:[epoch]')
         parser.add_argument('--init_weights_keys', type=str, default='.+', help='regex for weights keys to be loaded')

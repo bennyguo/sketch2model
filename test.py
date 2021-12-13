@@ -21,8 +21,6 @@ if __name__ == '__main__':
 
     model.eval()
     with torch.no_grad():
-        model.validate(current_epoch, dataset_test, phase=opt.test_split, save_dir=out_dir)
-    val_losses = model.get_current_losses('val')
-    for loss_name, loss_val in val_losses.items():
-        pass
-    print("Test losses |", ' '.join([f"{k}: {v:.3e}" for k, v in val_losses.items()]))
+        model.test(current_epoch, dataset_test, save_dir=out_dir)
+    test_losses = model.get_current_losses('test')
+    print("Test losses |", ' '.join([f"{k}: {v:.3e}" for k, v in test_losses.items()]))

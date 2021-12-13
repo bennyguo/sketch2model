@@ -225,7 +225,7 @@ class ViewDisentangleNetwork(nn.Module):
 
         self.domain_discriminator = nn.Sequential(
             GradientReversalLayer(lambda_=opt.grl_lambda),
-            nn.Linear(1024, 256), # 25088 for model+da, 1024 w/o da
+            nn.Linear(25088, 256),
             nn.ReLU(inplace=True),
             nn.Linear(256, 1)
         )
@@ -530,7 +530,7 @@ class ViewDisentangleModel(BaseModel):
         """Validation procedure. Called every opt.val_epoch_freq epochs."""
         count = 0
         iou_tot, iou_pred_tot = 0., 0.
-        for i, data in enumerate(tqdm(dataset, desc="Validation", total=len(dataset.dataloader))):
+        for i, data in enumerate(tqdm(dataset, desc=phase, total=len(dataset.dataloader))):
             self.set_input(data)
             self.forward_test()
             voxel_gt = self.data_voxel.cpu().numpy()

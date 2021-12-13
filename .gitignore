@@ -144,7 +144,7 @@ cython_debug/
 
 # End of https://www.toptal.com/developers/gitignore/api/python
 
-load/
+load/shapenet-*
 checkpoints/
 runs/
 results/

@@ -69,11 +69,11 @@ if __name__ == '__main__':
         if epoch % opt.test_epoch_freq == 0:
             model.eval()
             with torch.no_grad():
-                model.validate(epoch, dataset_test, phase='test')
-            val_losses = model.get_current_losses('val')
-            for loss_name, loss_val in val_losses.items():
-                writer.add_scalar(f"test_{loss_name}", loss_val, global_step=epoch)
-            print("Test losses |", ' '.join([f"{k}: {v:.3e}" for k, v in val_losses.items()]))
+                model.test(epoch, dataset_test)
+            test_losses = model.get_current_losses('test')
+            for loss_name, loss_test in test_losses.items():
+                writer.add_scalar(f"test_{loss_name}", loss_test, global_step=epoch)
+            print("Test losses |", ' '.join([f"{k}: {v:.3e}" for k, v in test_losses.items()]))
         
         if epoch % opt.save_epoch_freq == 0:
             print('Saving the model at the end of epoch %d, iters %d' % (epoch, total_iters))

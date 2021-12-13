@@ -193,7 +193,7 @@ class BaseModel(ABC, Configurable):
                 print('loading the model from %s' % load_path, 'with keys', keys)
                 if keys is None:
                     state_dict = torch.load(load_path, map_location=self.device)
-                    net.load_state_dict(state_dict)
+                    net.load_state_dict(state_dict, strict=False)
                 else:
                     state_dict = {k: v for k, v in torch.load(load_path, map_location=self.device).items() if re.match(keys, k)}
                     net.load_state_dict(state_dict, strict=False)
